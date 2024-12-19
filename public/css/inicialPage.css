@@ -200,17 +200,17 @@ body{
     height: 100vh;
     background-color: #ffffff;
     display: flex;
-    background-color: #009BD9;
+    background-image: linear-gradient(to bottom, #009BD9, #86d0ee);
 }
 
 .bids-section .left-section {
     padding: 10px;
-    width: 35%;
+    width: 20%;
     height: 90vh;
 }
 
 .bids-section .left-section img{
-    width: 100%;
+    width: 500px;
     height: 100%;
     margin-top: 30px;
     z-index: 1;
@@ -218,27 +218,83 @@ body{
 }
 
 .bids-section .right-section{
-    width: 65%;
+    width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+}
+
+.bids-section .right-section h1{
+    color: #ffffff;
+    font-size: 40px;
 }
 
 .bids-section .right-section .box-container{
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 80px;
 }
 
 .bids-section .right-section .box-container .box{
-
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
     padding: 20px;
-    flex: calc(50% - 20px);
-    border: 2px solid black;
-    width: 200px;
-    height: 300px;
+    flex: calc(25% - 10px);
+    width: 90px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.5s;
+}
+
+.bids-section .right-section .box-container .box:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+
+.bids-section .right-section .box-container .box .game{
+    width: 100%;
+    height: 50%;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.bids-section .right-section .box-container .box .green-mushroom {
+    width: 130px;
+    margin-top: 160px;
+    margin-left: 130px;
+    z-index: -0.5;
+    height: 90px;
+    position: absolute;
+    border-radius: 6px;
+}
+
+.bids-section .right-section .box-container .box h5, p{
+    z-index: 1;
+}
+
+.bids-section .right-section .box-container .box button {
+    width: 100%;
+    height: 13%;
+    margin-top: auto;
+    border-radius: 6px;
+    border: none;
+    background-color: rgb(220, 168, 55);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.bids-section .right-section .box-container .box button:hover{
+    background-color: #ffffff;
+    color: rgb(220, 168, 55);
+    transition: 0.5s;
+    border: 1px solid rgb(220, 168, 55);
 }
 
 .bids-section .floor{
