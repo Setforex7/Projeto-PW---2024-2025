@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+    /*background-image: url('/images/inicialBackground.jpg');  Substitua com o caminho da sua imagem */
+    background: linear-gradient(to right, #232526, #414345);
+    background-size: cover; /* Faz a imagem cobrir 100% do espaço */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: center; /* Centraliza a imagem no meio da página */
+    height: 100%; /* Garante que o background ocupe 100% da altura da viewport */
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+
+.nav-header{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    /* background-color: white; */
+}
+
+.navbar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.navbar .left-section{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .left-section img{
+    margin-left: 40px;
+}
+
+.navbar .right-section{
+    width: 50%;
+    height: 100%;
+}
+
+.navbar .right-section ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar .right-section li a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar .right-section li a{
+    color: rgb(218, 167, 28);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar .right-section .btn-login{
+    width: 140px;
+    display: block;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Fontes */
+
+.open-sans-regular {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.open-sans-bold {
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.main-section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.main-section h2{
+    padding: 10px;
+}
+
+.main-section p{
+    padding: 10px;
+}
+
+.main-section .left-section{
+    padding: 20px;
+    width: 60%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-section .left-section button{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 5px 0px 0px 10px;
+}
+
+.main-section .right-section{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
