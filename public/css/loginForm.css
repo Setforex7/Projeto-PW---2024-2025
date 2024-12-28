@@ -1,0 +1,278 @@
+dialog{
+    padding: 0;
+    margin: 0;
+    width: 60%;
+    height: 60vh;
+    position: fixed;
+    background-color: #333;
+    /* Garante que o dialog fique na janela */
+    top: 50%;
+    /* Centraliza verticalmente */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta o ponto de origem para o centro */
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    z-index: -10;
+}
+
+dialog .background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+dialog .header{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(183, 146, 65);
+    z-index: 1;
+}
+
+dialog .header .signin{
+    background-color: rgb(220, 168, 55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    color: #ffffff;
+    border-radius: 0px 0px 30px 0px;
+}
+
+dialog .header .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    color: #ffffff;
+    background-color: rgb(183, 146, 65);
+}
+
+dialog .right-section{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+dialog .right-section .social-text {
+    color: #ffffff;
+}
+
+dialog .right-section h5{
+    height: 10%;
+    width: 100%;
+    color: #ffffff;
+}
+
+dialog .right-section .logos{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 30px;
+}   
+
+dialog .right-section .logos .social-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+dialog .right-section .logos img{
+    width: 60px;
+    height: 60px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2),
+            /* Sombra principal */
+            0px 6px 6px rgba(0, 0, 0, 0.15);
+}
+
+dialog .right-section .logos h5{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+dialog .reddit,
+.steam {
+    margin-left: 11px;
+}
+
+dialog .right-section .logos img:hover{
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    transition: 0.3s;
+}   
+
+
+dialog .right-section .content-text {
+    margin-top: 90px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+dialog .right-section .support-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(220, 168, 55);
+    margin-top: 130px;
+    position: relative;
+    z-index: 10;
+}
+
+dialog .right-section .support-section .support-text{
+    color: #ffffff;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog .right-section .support-section .support-button{
+    background-color: rgb(183, 146, 65);
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog .right-section .support-section .support-button button{
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+dialog .left-section{
+    width: 40%;
+    background-color: #ffffff;
+}
+
+dialog .left-section form{
+    width: 80%;
+    height: 88%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+dialog .left-section form .form-field{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+dialog .left-section form .form-field label{
+    color: #000000; 
+}
+
+dialog .left-section form .form-field input{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    border: 1px solid #636363;
+}
+
+dialog .left-section form .terms-section{
+    width: 100%;
+    display: inline-flex;
+    gap: 10px;
+}
+
+dialog .left-section form .terms-section .checkbox{
+    margin-top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+dialog .left-section form .terms-section p{
+    text-decoration: underline;
+}
+
+dialog .left-section form .terms-section p:hover, .checkbox:hover{
+    cursor: pointer;
+}
+
+dialog .left-section form .signin-button{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(220, 168, 55);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+dialog .left-section form .signin-button:hover{
+    background-color: rgb(183, 146, 65);
+}
+
+dialog .left-section form .google-button {
+    border-radius: 5px;
+    border: 2px solid rgb(220, 168, 55);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+dialog .left-section form .google-button:hover{
+    background-color: rgb(220, 168, 55);
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+dialog .left-section form .facebook-button {
+    border-radius: 5px;
+    color: #ffffff;
+    border: 2px solid #0165E1;
+    background-color: #ffffff;
+    color: #0165E1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+    transition: 0.5s;
+}
+
+dialog .left-section form .facebook-button:hover{
+    background-color: #0165E1;
+    color: #ffffff;
+    transition: 0.5s;
+}
+
