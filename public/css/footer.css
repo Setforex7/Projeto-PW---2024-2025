@@ -1,0 +1,50 @@
+footer {
+    width: 100%;
+    height: 23vh;
+    background-color: #44AF35;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .box {
+    padding: 15px;
+    margin-top: 5px;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .box h3 {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+footer .box ul {
+    list-style: none;
+}
+
+footer .box ul a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.6s;
+}
+
+footer .box ul a:hover {
+    color: #874f1b;
+    font-size: 17px;
+    transition: 0.6s;
+}
+
+.credits-section {
+    width: 100%;
+    height: 7vh;
+    background-color: #874f1b;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

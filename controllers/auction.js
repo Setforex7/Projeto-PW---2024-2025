@@ -1,5 +1,5 @@
 exports.initialPage = (req, res, next) => {
-    res.render('auction/inicialPage');
+    res.render('auction/auctions');
 }
 
 exports.adminDashboard = (req, res, next) => {
