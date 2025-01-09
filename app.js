@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 
 //? Import das routes dos admins
 const adminRoutes = require('./routes/admin');
-const userRoutes = require('./routes/users');
+const auctionRoutes = require('./routes/auction');
+const ladingPages = require('./routes/landingpages');
 
 //? APP vai guardar todas as funcionalidades do express
 const app = express();
@@ -29,7 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //? apenas temos de chamar o app.use e passar o ficheir que contém o trabatamento de cada um desses tipos de conteúdos
 //* Ter em atenção a ordem de cima para baixo dos tipos de request.
 app.use('/admin', adminRoutes.router);
-app.use('/', userRoutes.router);
+app.use('/auction', auctionRoutes.router);
+app.use('/', ladingPages.router);
 
 //? Makes the server run, in the port 3k
 app.listen(4000);   

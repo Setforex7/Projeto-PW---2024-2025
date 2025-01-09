@@ -5,6 +5,6 @@ const auction = require('../controllers/auction');
 //? Definição do router
 const router = express.Router();
 
-router.get('/admin', auction.adminDashboard);
+router.get('/profile', auction.adminDashboard);
 
 exports.router = router;

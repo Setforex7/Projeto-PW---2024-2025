@@ -1,4 +1,8 @@
 exports.initialPage = (req, res, next) => {
+    res.render('auction/inicialPage');
+}
+
+exports.auctionPage = (req, res, next) => {
     res.render('auction/auctions');
 }
 
