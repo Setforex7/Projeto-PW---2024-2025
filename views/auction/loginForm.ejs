@@ -2,30 +2,30 @@
     <img class="background" src="/images/background-login.jpg" alt="">
     <div class="left-section">
         <div class="header">
-            <div class="signin">
+            <div class="signin active" id="singin">
                 <h4 class="poppins-bold">Sign In</h4>
             </div>
             <div class="line"></div>
-            <div class="login">
+            <div class="login inactive" id="login">
                 <h4 class="poppins-bold">Log in</h4>
             </div>
         </div>
         <form method="POST" action="/submit-login">
             <div class="form-field">
                 <label class="poppins-bold" for="">Username</label>
-                <input type="text" class="poppins-regular" placeholder="Username here..." />
+                <input type="text" class="poppins-regular" name="username" placeholder="Username here..." />
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Email</label>
-                <input type="text" class="poppins-regular" placeholder="Email here..." />
+                <input type="text" class="poppins-regular" name="email" placeholder="Email here..." />
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Password</label>
-                <input type="text" class="poppins-regular" placeholder="Password here..." />
+                <input type="text" class="poppins-regular" name="password" placeholder="Password here..." />
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Confirm Password</label>
-                <input type="text" class="poppins-regular" placeholder="Confirm Passowrd here..." />
+                <input type="text" class="poppins-regular" name="confirmPassword" placeholder="Confirm Passowrd here..." />
             </div>
             <div class="terms-section">
                 <input class="checkbox" type="checkbox">

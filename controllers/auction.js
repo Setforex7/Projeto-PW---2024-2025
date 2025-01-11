@@ -1,8 +1,6 @@
-const db = require('../database/db');
-
 const User = require('../models/users');
 
-exports.initialPage = (req, res, next) => {
+exports.initialPage = async (req, res, next) => {
     res.render('auction/inicialPage');
 }
 
@@ -20,13 +18,22 @@ exports.adminDashboard = (req, res, next) => {
 
 exports.submitLoginForm = async (req, res, next) => {
     try {
-        const lastUserIdQuery = await db.query('SELECT MAX(userid) AS max_user_id FROM "Utilizador"');
-        console.log(req);
-        let lastUserId = lastUserIdQuery.rows[0].max_user_id;
-        let newUser = new User(req.body.name, req.body.email, req.body.password, req.body.confirmPassword);
-        console.log(newUser);
-      } catch (err) {
-        console.error('Erro ao buscar o MAX userid:', err);
+        const { email, username, password, confirmPassword } = req.body;
+
+        const isUserRegistred = await User.verifyUserAlreadyExists(username);
+        if (isUserRegistred) {
+            return console.log("O utilizador já existe!");
+        }
+
+        if (!User.verifyConfirmPassword(password, confirmPassword)) {
+            return console.log("As passwords não coincidem");
+        }
+
+        const newUser = new User(email, username, password);
+        await newUser.signin();
+        res.redirect("/");
+    } catch (err) {
+        console.error("Erro ao buscar o MAX userid:", err);
         throw err;
-      }
+    }
 }
