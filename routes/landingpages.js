@@ -1,11 +1,12 @@
 const express = require('express');
 
-const auction = require('../controllers/auction');
-
 //? Definição do router
 const router = express.Router();
 
+const auction = require('../controllers/auction');
+
 router.get('/', auction.initialPage);
 router.get('/profile', auction.profilePage);
+router.post('/submit-login', auction.submitLoginForm);
 
 exports.router = router;

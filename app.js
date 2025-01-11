@@ -21,6 +21,7 @@ app.set('views', 'views');
 
 //? Traduz a informação enviada como resposta, funciona exatamento como o buffer, mas de forma automâtica e dinâmica
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //? Ficheiros definidos de form estática, desta forma pode
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //* Ter em atenção a ordem de cima para baixo dos tipos de request.
 app.use('/admin', adminRoutes.router);
 app.use('/auction', auctionRoutes.router);
-app.use('/', ladingPages.router);
+app.use(ladingPages.router);
 
 //? Makes the server run, in the port 3k
 app.listen(4000);   
