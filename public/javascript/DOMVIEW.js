@@ -1,46 +1,59 @@
-const togglePopupLogIn = document.getElementById("log-in");
-const togglePopupAddAuction = document.getElementById("add-auction");
+//? Verifica todo o conteudo da página antes de correr o código javascript
+document.addEventListener("DOMContentLoaded", () => {
 
-//? Login Form
-const logInForm = document.getElementById("log-in-form");
-//? Add Auction Form
-const addAuctionForm = document.getElementById("add-auction-form");
+  const togglePopupLogIn = document.getElementById("log-in");
+  const togglePopupAddAuction = document.getElementById("add-auction");
 
-togglePopupLogIn.addEventListener("click", () => {
-  logInForm.style.display = "flex";
-  logInForm.showModal();
-});
+  //? Login Form
+  const loginDialog = document.getElementById("log-in-form");
+  //? Add Auction Form
+  const addAuctionDialog = document.getElementById("add-auction-form");
 
-togglePopupAddAuction.addEventListener("click", () => {
-  addAuctionForm.style.display = "flex";
-  addAuctionForm.showModal();
-});
+  togglePopupLogIn.addEventListener("click", () => {
+    loginDialog.style.display = "flex";
+    loginDialog.showModal();
+  });
 
-const signinTab = document.getElementById("singin");
-const loginTab = document.getElementById("login");
+  togglePopupAddAuction.addEventListener("click", () => {
+    addAuctionDialog.style.display = "flex";
+    addAuctionDialog.showModal();
+  });
+
+  //* Form de login */
+
+  const signinTab = document.getElementById("singin");
+  const signinForm = document.getElementById("signin-form");
+  const loginTab = document.getElementById("login");
+  const loginForm = document.getElementById("login-form");
 
   signinTab.addEventListener("click", () => {
-    signinTab.classList.add("active");
-    signinTab.classList.remove("inactive");
+      loginForm.style.display = "none";
+      signinForm.style.display = "flex";
 
-    loginTab.classList.add("inactive");
-    loginTab.classList.remove("active");
+      signinTab.classList.add("active");
+      signinTab.classList.remove("inactive");
 
-    // Aqui você pode alternar o conteúdo dos formulários
-    console.log("Sign In Tab Active");
+      loginTab.classList.add("inactive");
+      loginTab.classList.remove("active");
+
+      // Aqui você pode alternar o conteúdo dos formulários
+      console.log("Sign In Tab Active");
   });
 
   loginTab.addEventListener("click", () => {
-    loginTab.classList.add("active");
-    loginTab.classList.remove("inactive");
+      loginForm.style.display = "flex";
+      signinForm.style.display = "none";
 
-    signinTab.classList.add("inactive");
-    signinTab.classList.remove("active");
+      loginTab.classList.add("active");
+      loginTab.classList.remove("inactive");
 
-    // Aqui você pode alternar o conteúdo dos formulários
-    console.log("Log In Tab Active");
+      signinTab.classList.add("inactive");
+      signinTab.classList.remove("active");
+
+      // Aqui você pode alternar o conteúdo dos formulários
+      console.log("Log In Tab Active");
+  });
+
+
+  console.log("DOMVIEW.js");
 });
-
-
-
-console.log("DOMVIEW.js");

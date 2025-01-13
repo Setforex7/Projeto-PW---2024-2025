@@ -10,7 +10,7 @@
                 <h4 class="poppins-bold">Log in</h4>
             </div>
         </div>
-        <form method="POST" action="/submit-login">
+        <form method="POST" id="signin-form" action="/submit-login">
             <div class="form-field">
                 <label class="poppins-bold" for="">Username</label>
                 <input type="text" class="poppins-regular" name="username" placeholder="Username here..." />
@@ -29,11 +29,30 @@
             </div>
             <div class="terms-section">
                 <input class="checkbox" type="checkbox">
-                <p class="poppins-regular">Terms and Conditions</p>
+                <p class="poppins-regular">Termos e Condições</p>
             </div>
             <button class="signin-button poppins-bold" type="submit">Sign In</button>
             <button class="google-button poppins-bold" ><img src="/images/google.png" alt=""><span>Sign In With Google</span></button>
             <button class="facebook-button poppins-bold"><img src="/images/fb.png" alt=""><span>Sign In With Facebook</span></button>
+        </form>
+        <form method="POST" id="login-form" style="display: none;" action="/submit-login">
+            <div class="form-field">
+                <label class="poppins-bold" for="">Username</label>
+                <input type="text" class="poppins-regular" name="username" placeholder="Username here..." />
+            </div>
+            <div class="form-field">
+                <label class="poppins-bold" for="">Password</label>
+                <input type="text" class="poppins-regular" name="password" placeholder="Password here..." />
+            </div>
+            <div class="terms-section">
+                <input class="checkbox" type="checkbox">
+                <p class="poppins-regular">Manter sessão iniciada</p>
+            </div>
+            <button class="signin-button poppins-bold" type="submit">Log In</button>
+            <button class="google-button poppins-bold"><img src="/images/google.png" alt=""><span>Log In With Google
+                    Google</span></button>
+            <button class="facebook-button poppins-bold"><img src="/images/fb.png" alt=""><span>Log In With
+                    Facebook</span></button>
         </form>
     </div>
     <div class="right-section">

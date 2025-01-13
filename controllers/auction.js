@@ -22,11 +22,13 @@ exports.submitLoginForm = async (req, res, next) => {
 
         const isUserRegistred = await User.verifyUserAlreadyExists(username);
         if (isUserRegistred) {
+            res.status(401).json({ error: 'O utilizador já existe!' });
             return console.log("O utilizador já existe!");
         }
 
         if (!User.verifyConfirmPassword(password, confirmPassword)) {
-            return console.log("As passwords não coincidem");
+            res.status(400).json({ error: "As passwords não coincidem!" });
+            return console.log("As passwords não coincidem!");
         }
 
         const newUser = new User(email, username, password);
