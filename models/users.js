@@ -1,4 +1,5 @@
 const db = require('../database/db');
+const bcrypt = require('bcrypt');
 
 module.exports = class User {
     constructor(email, username, password) {
@@ -10,29 +11,36 @@ module.exports = class User {
 
     //? Função que regista um utilizador na base de dados
     async signin() {
-        const userId = await User.getLastUserId();
         try {
-        await db.query(
+          const userId = await User.getLastUserId();
+          const hashedPassword = await bcrypt.hash(this.password, 10);
+          await db.query(
             `INSERT INTO "Users" (userid, email, username, password) VALUES ($1, $2, $3, $4)`,
-            [userId, this.email, this.username, this.password]
-        );
-        this.userid = userId;
-        console.log("Utilizador registrado com sucesso!");
+            [userId, this.email, this.username, hashedPassword]
+          );
+          this.userid = userId;
+          console.log("Utilizador registrado com sucesso!");
         } catch (err) {
-        console.error("Erro ao registrar usuário:", err);
-        throw err;
+          console.error("Erro ao registrar usuário:", err);
+          throw err;
         }
     }
 
-    async login(username, password){
+    static async login(username, password){
       try{
+        //? Vai buscar a propriedade Rows do objeto devolvido na resposta (rows contem os dados receibos)
         const { rows } = await db.query(
-          'SELECT * FROM "Users" WHERE username = $1 and password = $2', 
-          [username, password]);
-        
-        if(result.rows.length > 0){
-          return rows[0];
+          'SELECT * FROM "Users" WHERE username = $1', 
+          [username]);
+        //? Verificamos se a query funcionou
+        if(rows.length > 0){
+          //? Encryptamos a palavra pass e verificamos com a palavra pass da base de dados
+          const isValidPassword = await bcrypt.compare(password, rows[0].password);
+          if(isValidPassword){
+            return rows[0];
+          }
         }
+        return null;
       }catch(err){
         throw err;
       }

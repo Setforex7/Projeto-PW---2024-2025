@@ -26,13 +26,15 @@ exports.login = async (req, res, next) => {
     const { username, password } = req.body;    
 
     try{
-        const login = User.login(username, password);
+        const login = await User.login(username, password);
+        console.log(login);
+        if (login) {
+          req.session.credentials = login;
+          console.log(req.session.credentials);
 
-        if(login){
-            req.session.credentials = login;
-            console.log(req.session.credentials);
-            return res.status(200).json({ message: 'Login bem-sucedido!' });
-        }else{
+          return res.status(200).redirect('/profile');
+        } else {
+          return res.status(401).json({ error: "Credenciais inválidas." });
         }
     }catch(err){
         return res.status(500).json({ error: "Erro interno do servidor." });

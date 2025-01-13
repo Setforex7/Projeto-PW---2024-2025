@@ -28,9 +28,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(
     session({
-      secret: 'your-secret-key', // Replace with a secure key
+      secret: 'CR7', // Replace with a secure key
       resave: false,
-      saveUninitialized: false,
+      saveUninitialized: true,
     //   cookie: { maxAge: 60000 }, // 1-minute session timeout
     })
 );
