@@ -10,22 +10,23 @@
                 <h4 class="poppins-bold">Log in</h4>
             </div>
         </div>
-        <form method="POST" id="signin-form" action="/submit-login">
+        <form method="POST" id="signin-form" action="/auth/signin">
+            <p class="poppins-bold result-message"></p>
             <div class="form-field">
                 <label class="poppins-bold" for="">Username</label>
-                <input type="text" class="poppins-regular" name="username" placeholder="Username here..." />
+                <input type="text" class="poppins-regular" name="username" placeholder="Username here..." required/>
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Email</label>
-                <input type="text" class="poppins-regular" name="email" placeholder="Email here..." />
+                <input type="text" class="poppins-regular" name="email" placeholder="Email here..." required/>
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Password</label>
-                <input type="text" class="poppins-regular" name="password" placeholder="Password here..." />
+                <input type="text" class="poppins-regular" name="password" placeholder="Password here..." required/>
             </div>
             <div class="form-field">
                 <label class="poppins-bold" for="">Confirm Password</label>
-                <input type="text" class="poppins-regular" name="confirmPassword" placeholder="Confirm Passowrd here..." />
+                <input type="text" class="poppins-regular" name="confirmPassword" placeholder="Confirm Passowrd here..." required/>
             </div>
             <div class="terms-section">
                 <input class="checkbox" type="checkbox">
@@ -35,7 +36,7 @@
             <button class="google-button poppins-bold" ><img src="/images/google.png" alt=""><span>Sign In With Google</span></button>
             <button class="facebook-button poppins-bold"><img src="/images/fb.png" alt=""><span>Sign In With Facebook</span></button>
         </form>
-        <form method="POST" id="login-form" style="display: none;" action="/submit-login">
+        <form method="POST" id="login-form" style="display: none;" action="/auth/login">
             <div class="form-field">
                 <label class="poppins-bold" for="">Username</label>
                 <input type="text" class="poppins-regular" name="username" placeholder="Username here..." />

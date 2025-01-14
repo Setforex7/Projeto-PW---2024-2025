@@ -24,6 +24,20 @@ module.exports = class User {
         }
     }
 
+    async login(username, password){
+      try{
+        const { rows } = await db.query(
+          'SELECT * FROM "Users" WHERE username = $1 and password = $2', 
+          [username, password]);
+        
+        if(result.rows.length > 0){
+          return rows[0];
+        }
+      }catch(err){
+        throw err;
+      }
+    }
+
     //? Função que devolve o último id de utilizador da base de dados
     static async getLastUserId() {
         try{
@@ -32,15 +46,15 @@ module.exports = class User {
             );
             return parseInt(lastUserId.rows[0].max_user_id) + 1;
         }catch(err){
-            console.error('Erro ao buscar o MAX userid:', err);
+            console.error('Erro ao ir buscar o MAX userid:', err);
             throw err;
         }
     }
 
     //? Função que verifica se o utilizador a ser criado já está na base de dados
-    static async verifyUserAlreadyExists(username) {
-      const result = await db.query('SELECT 1 FROM "Users" WHERE username = $1', [
-        username,
+    static async verifyUserAlreadyExists(username, email) {
+      const result = await db.query('SELECT 1 FROM "Users" WHERE username = $1 and email = $2', [
+        username, email
       ]);
       return result.rows.length > 0;
     }

@@ -5,7 +5,11 @@ const express = require('express');
 //? Body parser é um middleware que permite a leitura de dados enviados por formulários
 const bodyParser = require('body-parser');
 
+//? Objeto global para construir a sessão do utilizador
+const session = require('express-session');
+
 //? Import das routes dos admins
+const auth = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const auctionRoutes = require('./routes/auction');
 const ladingPages = require('./routes/landingpages');
@@ -22,6 +26,14 @@ app.set('views', 'views');
 //? Traduz a informação enviada como resposta, funciona exatamento como o buffer, mas de forma automâtica e dinâmica
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(
+    session({
+      secret: 'your-secret-key', // Replace with a secure key
+      resave: false,
+      saveUninitialized: false,
+    //   cookie: { maxAge: 60000 }, // 1-minute session timeout
+    })
+);
 
 //? Ficheiros definidos de form estática, desta forma pode
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //* Ter em atenção a ordem de cima para baixo dos tipos de request.
 app.use('/admin', adminRoutes.router);
 app.use('/auction', auctionRoutes.router);
+app.use('/auth', auth.router)
 app.use(ladingPages.router);
 
 //? Makes the server run, in the port 3k

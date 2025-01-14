@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       signinTab.classList.remove("active");
 
       // Aqui você pode alternar o conteúdo dos formulários
-      console.log("Log In Tab Active");
   });
 
 
