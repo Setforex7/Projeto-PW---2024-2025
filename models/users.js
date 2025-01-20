@@ -12,7 +12,7 @@ module.exports = class User {
     //? Função que regista um utilizador na base de dados
     async signin() {
         try {
-          const userId = await User.getLastUserId();
+          const userId = await this.getLastUserId();
           const hashedPassword = await bcrypt.hash(this.password, 10);
           await db.query(
             `INSERT INTO "Users" (userid, email, username, password) VALUES ($1, $2, $3, $4)`,
@@ -46,8 +46,14 @@ module.exports = class User {
       }
     }
 
+    static validateLogin(session){
+      const isLogged = session ? true : false;
+      return { user: session, 
+               isLogged: isLogged };
+    }
+
     //? Função que devolve o último id de utilizador da base de dados
-    static async getLastUserId() {
+    async getLastUserId() {
         try{
             const lastUserId = await db.query(
                 'SELECT MAX(userid) AS max_user_id FROM "Users"'

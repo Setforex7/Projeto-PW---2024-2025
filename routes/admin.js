@@ -1,6 +1,6 @@
 const express = require('express');
 
-const auction = require('../controllers/auction');
+const auction = require('../controllers/mainController');
 
 //? Definição do router
 const router = express.Router();

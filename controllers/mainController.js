@@ -1,11 +1,11 @@
 const User = require('../models/users');
 
 exports.initialPage = async (req, res, next) => {
-    res.render('auction/inicialPage');
+    res.render("auction/inicialPage", { login: User.validateLogin(req.session.credentials) });
 }
 
 exports.auctionPage = (req, res, next) => {
-    res.render('auction/auctions');
+    res.render('auction/auctions', { login: User.validateLogin(req.session.credentials) });  ;
 }
 
 exports.profilePage = (req, res, next) => {

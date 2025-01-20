@@ -1,16 +1,21 @@
-<dialog id="add-auction-form" style="display: none">
-    <img src="/images/luigi.png" alt="">
+<dialog class="auction-dialog" id="add-auction-form" style="display: none">
+    <img src="/images/luigi.png" class="luigi" alt="">
     <div class="header">
+        <img src="/images/leave.png" class="close-auction" id="close-auction" alt="">
         <h1 class="poppins-bold">Create Auction</h1>
     </div>
-    <form action="" method="dialog">
+    <form action="/auth/create-auction" method="POST">
         <div class="form-group poppins-bold">
             <label for="">Name</label>
-            <input type="text" name="title" class="poppins-regular" placeholder="Title">
+            <input type="text" name="name" class="poppins-regular" placeholder="Title">
+        </div>
+        <div class="form-group poppins-bold">
+            <label for="">Description</label>
+            <input type="text" name="description" class="poppins-regular" placeholder="Title">
         </div>
         <div class="form-group poppins-bold">
             <label for="">Category</label>
-            <select name="consoles" class="poppins-bold" id="consoles">
+            <select name="category" class="poppins-bold" id="consoles">
                 <option value="volvo">Nintendo</option>
                 <option value="saab">Playstation</option>
                 <option value="mercedes">XBox</option>
@@ -19,7 +24,7 @@
         </div>
         <div class="form-group poppins-bold">
             <label for="">State</label>
-            <select name="consoles" class="poppins-bold" id="consoles">
+            <select name="state" class="poppins-bold" id="consoles">
                 <option value="volvo">Excelent</option>
                 <option value="saab">Very Good</option>
                 <option value="mercedes">Good</option>
@@ -29,10 +34,18 @@
             <label for="">Price</label>
             <input type="number" name="price" placeholder="Price/€">
         </div>
+        <div class="form-group poppins-bold">
+            <label for="">Data De Começo</label>
+            <input type="date" name="sdate" placeholder="Price/€">
+        </div>
+        <div class="form-group poppins-bold">
+            <label for="">Data De Término</label>
+            <input type="date" name="edate" placeholder="Price/€">
+        </div>
         <div class="upload-btn">
             <button class="btn poppins-bold">Upload a file</button>
-            <input type="file" name="myfile" />
+            <input type="file" name="image" />
         </div>
-        <button class="create-btn poppins-bold">Create</button>
+        <button type="submit" class="create-btn poppins-bold">Create</button>
     </form>
 </dialog>

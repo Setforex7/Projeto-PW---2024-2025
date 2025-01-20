@@ -3,12 +3,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/inicialPage.css">
     <link rel="stylesheet" href="/css/loadingScreen.css">
-    <!-- <link rel="stylesheet" href="/css/auctionForm.css"> -->
+    <link rel="stylesheet" href="/css/auctionForm.css">
     <link rel="stylesheet" href="/css/loginForm.css">
     <title>Flappy Bid</title>
 <%- include('../includes/navbar.ejs') %>
 <%- include('loginForm.ejs') %>
-<%- include('auctionForm.ejs') %>
 <%- include('loadingScreen.ejs') %>
     <div class="background">
         <div class="particle"></div>
@@ -22,7 +21,7 @@
         <div class="left-section">
             <h2 class="poppins-bold">Seja muito bem vindo, onde coisas velhas ganham vida</h2>
             <p class="poppins-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit aut id <br> obcaecati earum odit. Vel illum nostrum voluptatibus, eius facere obcaecati perferendis <br> consequuntur exercitationem, at aspernatur labore ducimus rem.</p>
-            <button class="poppins-regular" id="add-auction" >Registo</button>
+            <button class="poppins-regular" >Registo</button>
         </div>
         <div class="right-section">
             <img src="/images/r.png" width="400" height="400" alt="">
@@ -143,5 +142,4 @@
             <button id="teste">Click me</button>
         </div>
     </section>
-
 <%- include('../includes/end.ejs') %>

@@ -11,8 +11,7 @@ const session = require('express-session');
 //? Import das routes dos admins
 const auth = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
-const auctionRoutes = require('./routes/auction');
-const ladingPages = require('./routes/landingpages');
+const mainRoutes = require('./routes/main');
 
 //? APP vai guardar todas as funcionalidades do express
 const app = express();
@@ -43,9 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //? apenas temos de chamar o app.use e passar o ficheir que contém o trabatamento de cada um desses tipos de conteúdos
 //* Ter em atenção a ordem de cima para baixo dos tipos de request.
 app.use('/admin', adminRoutes.router);
-app.use('/auction', auctionRoutes.router);
-app.use('/auth', auth.router)
-app.use(ladingPages.router);
+app.use('/auth', auth.router);
+app.use(mainRoutes.router);
 
 //? Makes the server run, in the port 3k
 app.listen(4000);   

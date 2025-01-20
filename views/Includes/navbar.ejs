@@ -9,12 +9,17 @@
             </div>
             <div class="right-section">
                 <ul class="list-items">
-                    <li><a class="poppins-bold" href="">Inicio</a></li>
-                    <li><a class="poppins-bold" href="">Mensagens</a></li>
-                    <li><a class="poppins-bold" href="">Leilões</a></li>
-                    <li><a class="poppins-bold" href="">Perfil</a></li>
-                    <li><Button class="poppin-regular" id="log-in">Registo</Button></li>
+                    <li><a class="poppins-bold" href="/">Inicio</a></li>
+                    <li><a class="poppins-bold" href="">Sobre nós</a></li>
+                    <li><a class="poppins-bold" href="/auction">Leilões</a></li>
+                    <li><a class="poppins-bold" href=""></a></li>
+                    <% if(login.isLogged) { %>
+                    <li><a href="/auth/profile"><Button class="poppin-regular" id="profile">Profile</Button></a></li>
+                    <% }else{ %>
+                        <li><Button class="poppin-regular" id="login-button">Login</Button></li>
+                    <% } %>
                 </ul>
             </div>
         </nav>
     </header>
+    <script src="/javascript/login.js" defer></script>

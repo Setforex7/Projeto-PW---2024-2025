@@ -1,4 +1,4 @@
-dialog{
+.login-dialog{
     padding: 0;
     margin: 0;
     width: 70%;
@@ -19,7 +19,7 @@ dialog{
     z-index: -10;
 }
 
-dialog .background{
+.login-dialog .background{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -27,7 +27,7 @@ dialog .background{
     z-index: -1;
 }
 
-dialog .header{
+.login-dialog .header{
     width: 100%;
     height: 12%;
     display: flex;
@@ -37,7 +37,7 @@ dialog .header{
     z-index: 1;
 }
 
-dialog .header .signin{
+.login-dialog .header .signin{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ dialog .header .signin{
     /* border-radius: 0px 0px 30px 0px; */
 }
 
-dialog .header .login{
+.login-dialog .header .login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ dialog .header .login{
 
 /*  */
 
-dialog .right-section{
+.login-dialog .right-section{
     width: 60%;
     height: 100%;
     display: flex;
@@ -83,17 +83,17 @@ dialog .right-section{
     z-index: -1;
 }
 
-dialog .right-section .social-text {
+.login-dialog .right-section .social-text {
     color: #ffffff;
 }
 
-dialog .right-section h5{
+.login-dialog .right-section h5{
     height: 10%;
     width: 100%;
     color: #ffffff;
 }
 
-dialog .right-section .logos{
+.login-dialog .right-section .logos{
     width: 100%;
     height: 50%;
     display: flex;
@@ -103,7 +103,7 @@ dialog .right-section .logos{
     margin-top: 30px;
 }   
 
-dialog .right-section .logos .social-container {
+.login-dialog .right-section .logos .social-container {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -112,7 +112,7 @@ dialog .right-section .logos .social-container {
     gap: 10px;
 }
 
-dialog .right-section .logos img{
+.login-dialog .right-section .logos img{
     width: 60px;
     height: 60px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2),
@@ -120,24 +120,23 @@ dialog .right-section .logos img{
             0px 6px 6px rgba(0, 0, 0, 0.15);
 }
 
-dialog .right-section .logos h5{
+.login-dialog .right-section .logos h5{
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-dialog .reddit,
+.login-dialog .reddit,
 .steam {
     margin-left: 11px;
 }
 
-dialog .right-section .logos img:hover{
+.login-dialog .right-section .logos img:hover{
     cursor: pointer;
     width: 70px;
     height: 70px;
     transition: 0.3s;
 }   
 
-
-dialog .right-section .content-text {
+.login-dialog .right-section .content-text {
     margin-top: 90px;
     position: relative;
     display: flex;
@@ -149,7 +148,7 @@ dialog .right-section .content-text {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-dialog .right-section .support-section{
+.login-dialog .right-section .support-section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,7 +160,7 @@ dialog .right-section .support-section{
     z-index: 10;
 }
 
-dialog .right-section .support-section .support-text{
+.login-dialog .right-section .support-section .support-text{
     color: #ffffff;
     width: 75%;
     height: 100%;
@@ -170,7 +169,7 @@ dialog .right-section .support-section .support-text{
     align-items: center;
 }
 
-dialog .right-section .support-section .support-button{
+.login-dialog .right-section .support-section .support-button{
     background-color: rgb(183, 146, 65);
     width: 25%;
     height: 100%;
@@ -179,19 +178,19 @@ dialog .right-section .support-section .support-button{
     align-items: center;
 }
 
-dialog .right-section .support-section .support-button button{
+.login-dialog .right-section .support-section .support-button button{
     background-color: transparent;
     border: none;
     color: #ffffff;
     font-size: 19px;
 }
 
-dialog .left-section{
+.login-dialog .left-section{
     width: 40%;
     background-color: #ffffff;
 }
 
-dialog .left-section form{
+.login-dialog .left-section form{
     width: 80%;
     height: 88%;
     display: flex;
@@ -201,17 +200,17 @@ dialog .left-section form{
     gap: 10px;
 }
 
-dialog .left-section form .form-field{
+.login-dialog .left-section form .form-field{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-dialog .left-section form .form-field label{
+.login-dialog .left-section form .form-field label{
     color: #000000; 
 }
 
-dialog .left-section form .form-field input{
+.login-dialog .left-section form .form-field input{
     width: 100%;
     height: 30px;
     padding: 10px;
@@ -220,27 +219,27 @@ dialog .left-section form .form-field input{
     border: 1px solid #636363;
 }
 
-dialog .left-section form .terms-section{
+.login-dialog .left-section form .terms-section{
     width: 100%;
     display: inline-flex;
     gap: 10px;
 }
 
-dialog .left-section form .terms-section .checkbox{
+.login-dialog .left-section form .terms-section .checkbox{
     margin-top: 2px;
     width: 20px;
     height: 20px;
 }
 
-dialog .left-section form .terms-section p{
+.login-dialog .left-section form .terms-section p{
     text-decoration: underline;
 }
 
-dialog .left-section form .terms-section p:hover, .checkbox:hover{
+.login-dialog .left-section form .terms-section p:hover, .checkbox:hover{
     cursor: pointer;
 }
 
-dialog .left-section form .signin-button{
+.login-dialog .left-section form .signin-button{
     width: 100%;
     height: 30px;
     background-color: rgb(220, 168, 55);
@@ -250,11 +249,11 @@ dialog .left-section form .signin-button{
     cursor: pointer;
 }
 
-dialog .left-section form .signin-button:hover{
+.login-dialog .left-section form .signin-button:hover{
     background-color: rgb(183, 146, 65);
 }
 
-dialog .left-section form .google-button {
+.login-dialog .left-section form .google-button {
     border-radius: 5px;
     border: 2px solid rgb(220, 168, 55);
     background-color: #ffffff;
@@ -265,13 +264,13 @@ dialog .left-section form .google-button {
     gap: 10px;
 }
 
-dialog .left-section form .google-button:hover{
+.login-dialog .left-section form .google-button:hover{
     background-color: rgb(220, 168, 55);
     color: #ffffff;
     transition: 0.5s;
 }
 
-dialog .left-section form .facebook-button {
+.login-dialog .left-section form .facebook-button {
     border-radius: 5px;
     color: #ffffff;
     border: 2px solid #0165E1;
@@ -285,7 +284,7 @@ dialog .left-section form .facebook-button {
     transition: 0.5s;
 }
 
-dialog .left-section form .facebook-button:hover{
+.login-dialog .left-section form .facebook-button:hover{
     background-color: #0165E1;
     color: #ffffff;
     transition: 0.5s;
@@ -299,6 +298,18 @@ dialog .left-section form .facebook-button:hover{
     height: 40px;
     border-radius: 3px;
     border: 2px solid;
+}
+
+.close-login{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    width: 20px;
+    height: 20px;
+}
+
+.close-login:hover{
+    cursor: pointer;
 }
 
 /* border; color; */

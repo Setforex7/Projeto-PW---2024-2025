@@ -1,6 +1,6 @@
-<%- include('../includes/head.ejs') %>
+<%- include('./includes/head.ejs') %>
     <link rel="stylesheet" href="/css/profile.css">
-<%- include('../includes/navbar.ejs') %>
+<%- include('./includes/navbar.ejs') %>
     <main>
         <img src="/images/initialBack.jpg" class="mario" alt="">
         <div class="sub-main">
@@ -10,12 +10,13 @@
                     </div>
                 </div>
                 <div class="separator"></div>
-                <h1 class="poppins-bold">Leandro Francisco</h1>
-                <button class="alt-name poppins-bold">Alterar Nome<img src="/images/edit.png" width="30" height="30" class="edit" alt=""></button>
+                <h1 class="poppins-bold"><%= login.user.username %></h1>
+                <button class="alt-name poppins-bold">Alterar Nome<img src="/images/edit.png" width="30" height="30" alt=""></button>
+                <a href="/auth/logout"><button class="logout poppins-bold">Log out<img src="/images/logout.png" width="30" height="30" alt=""></button></a>
             </div>
             <div class="right-section">
                 
             </div>
         </div>
     </main>
-<%- include('../includes/end.ejs') %>
+<%- include('./includes/end.ejs') %>
