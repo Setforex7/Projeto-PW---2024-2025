@@ -4,7 +4,7 @@
         <img src="/images/leave.png" class="close-auction" id="close-auction" alt="">
         <h1 class="poppins-bold">Create Auction</h1>
     </div>
-    <form action="/auth/create-auction" method="POST">
+    <form action="/auth/create-auction" method="POST" enctype="multipart/form-data">
         <div class="form-group poppins-bold">
             <label for="">Name</label>
             <input type="text" name="name" class="poppins-regular" placeholder="Title">
@@ -16,18 +16,18 @@
         <div class="form-group poppins-bold">
             <label for="">Category</label>
             <select name="category" class="poppins-bold" id="consoles">
-                <option value="volvo">Nintendo</option>
-                <option value="saab">Playstation</option>
-                <option value="mercedes">XBox</option>
-                <option value="audi">PSP</option>
+                <option value="Nintendo">Nintendo</option>
+                <option value="Playstation">Playstation</option>
+                <option value="XBox">XBox</option>
+                <option value="PSP">PSP</option>
             </select>
         </div>
         <div class="form-group poppins-bold">
             <label for="">State</label>
             <select name="state" class="poppins-bold" id="consoles">
-                <option value="volvo">Excelent</option>
-                <option value="saab">Very Good</option>
-                <option value="mercedes">Good</option>
+                <option value="Excelent">Excelent</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Good">Good</option>
             </select>
         </div>
         <div class="form-group poppins-bold">
@@ -44,7 +44,7 @@
         </div>
         <div class="upload-btn">
             <button class="btn poppins-bold">Upload a file</button>
-            <input type="file" name="image" />
+            <input type="file" name="file" />
         </div>
         <button type="submit" class="create-btn poppins-bold">Create</button>
     </form>

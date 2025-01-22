@@ -267,9 +267,9 @@ body{
 }
 
 footer .box img {
-    position: absolute;
-    left: 45%;
-    top: 350%;
+    position: relative;
+    bottom: 50px;
+    left: 15%;
 }
 
 /*! Fontes */

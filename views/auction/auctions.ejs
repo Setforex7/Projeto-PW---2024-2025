@@ -34,58 +34,22 @@
                 <button class="poppins-bold search">Pesquisar</button>
             </div>
                 <div class="box-container">
+                    <% for(let i = 0; i < auctions.length; i++) { %>
                     <div class="box">
                         <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
+                        <img class="game" src="./uploads/<%= auctions[i].imagePath %>" alt="">
+                        <h5 class="poppins-bold"><%= auctions[i].name %></h5>
+                        <p class="poppins-regular"><%= auctions[i].category %></p>
+                        <p class="poppins-regular">Last Bid: <%= auctions[i].price %>€</p>
+                        <p class="poppins-regular timer" data-endtime="<%= auctions[i].edate %>">Tempo restante: --:--:--</p>
+                        <button class="poppins-bold"><a href="/bid-auction">Leiloar</a></button>
                     </div>
-                    <div class="box">
-                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
-                    </div>
-                    <div class="box">
-                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
-                    </div>
-                    <div class="box">
-                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
-                    </div>
-                    <div class="box">
-                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
-                    </div>
-                    <div class="box">
-                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="/images/tft.jpg" alt="">
-                        <h5 class="poppins-bold">Super Mario Bros</h5>
-                        <p class="poppins-regular">Nintendo</p>
-                        <p class="poppins-regular">Last Bid: 20,00€</p>
-                        <button class="poppins-bold">Leiloar</button>
-                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </section>
     <script src="/javascript/auction.js" defer></script>
     <script src="/javascript/login.js" defer></script>
+    <script src="/javascript/auctionTimer.js" defer></script>
 <%- include('../includes/end.ejs') %>

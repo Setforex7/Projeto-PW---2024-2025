@@ -12,11 +12,10 @@
                     <li><a class="poppins-bold" href="/">Inicio</a></li>
                     <li><a class="poppins-bold" href="">Sobre nós</a></li>
                     <li><a class="poppins-bold" href="/auction">Leilões</a></li>
-                    <li><a class="poppins-bold" href=""></a></li>
                     <% if(login.isLogged) { %>
                     <li><a href="/auth/profile"><Button class="poppin-regular" id="profile">Profile</Button></a></li>
                     <% }else{ %>
-                        <li><Button class="poppin-regular" id="login-button">Login</Button></li>
+                        <li><Button class="poppins-bold" id="login-button">Login</Button></li>
                     <% } %>
                 </ul>
             </div>

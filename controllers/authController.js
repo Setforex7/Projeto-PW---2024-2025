@@ -63,15 +63,15 @@ exports.logout = (req, res, next) => {
 
 //!
 exports.profilePage = (req, res, next) => {
-    const sessionStatus = User.validateLogin(req.session.credentials);
     res.render("profile", { login: User.validateLogin(req.session.credentials) });
 };  
 
 //! Criar leilão
 exports.createAuction = async (req, res, next) => {
-    console.log(req.body);
-    const { name, description, category, state, sdate, edate, image } = req.body;
+    const { name, description, category, state, sdate, edate } = req.body;
 
+    console.log(req);
+    console.log(req.body);
     //? Verifica se existe sessão ou não
     if(!req.session.credentials){
         throw new Error('Sessão inválida'); 
@@ -81,8 +81,13 @@ exports.createAuction = async (req, res, next) => {
         //? Prepara os ids
         const userid = req.session.credentials.userid;
 
+        let imagePath = null;
+        if (req.file) {
+            imagePath = req.file.filename;
+        }
+
         // //? Cria o objeto do leilão e adiciona ao backend
-        const newAuction = new Auction(name, description, category, state, sdate, edate, image, userid);
+        const newAuction = new Auction(name, description, category, state, sdate, edate, imagePath, userid);
         await newAuction.create();
 
         res.status(200).redirect('profile');

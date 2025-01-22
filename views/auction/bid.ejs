@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/bid.css">
+<%- include('../includes/navbar.ejs') %>
+<%- include('loginForm.ejs') %>
+    <main>
+        <div class="bid-container">
+            <div class="left-section">
+                <img class="game-img" src="/images/tft.jpg" alt="">
+            </div>
+            <div class="right-section">
+                <div class="auction-info">
+                    <div class="bid-info-group">
+                        <p class="label-text poppins-bold">Nome</p>
+                        <h1 class="poppins-bold name">Super Mario Bros</h1>
+                    </div>
+                    <div class="bid-info-group">
+                        <p class="label-text poppins-bold">Categoria</p>
+                        <h3 class="poppins-bold category">Nintendo</h3>
+                    </div>
+                    <div class="bid-info-group">
+                        <p class="label-text poppins-bold">Estado</p>
+                        <h5 class="poppins-bold state">Excelente</h5>
+                    </div>
+                    <div class="bid-info-group">
+                        <p class="label-text poppins-bold">Último lance</p>
+                        <h5 class="poppins-bold price">40,00€</h5>
+                    </div>
+                    <div class="bid-info-group">
+                        <p class="label-text poppins-bold">Tempo Restante</p>
+                        <p class="poppins-regular timer" data-endtime="11-11-11">Tempo restante: --:--:--</p>
+                    </div>
+                </div>
+                <div class="auction-bid">
+                    <button class="poppins-bold bid">Licitar Agora</button>
+                    <button class="poppins-bold contact">Contactar <img src="/images/telephone.png" class="img-contact" alt=""></button>
+                    <button class="poppins-bold report">Denunciar <img src="/images/proibido.png" class="img-contact" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include('../includes/end.ejs') %>

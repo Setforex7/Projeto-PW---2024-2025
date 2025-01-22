@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.get("/", mainController.initialPage);
 router.get('/auction', mainController.auctionPage);
+router.get("/bid-auction", mainController.bidPage);
 
 exports.router = router;

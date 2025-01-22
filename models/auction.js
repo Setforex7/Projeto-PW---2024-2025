@@ -43,10 +43,11 @@ module.exports = class Auction {
     //#region INFORMAÇÃO DOS LEILÕES
 
     //? Retorna todos os leilões
-    async fetchAllAuctions(){
+    static async fetchAllAuctions(){
         const allAuctions = await db.query(
             'SELECT * FROM "Auctions"'
         )
+        console.log(allAuctions.rows);
         return allAuctions.rows;
     }
 
