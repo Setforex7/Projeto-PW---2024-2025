@@ -16,4 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addAuctionDialog.style.display = "flex";
     addAuctionDialog.showModal();
   });
+
+  
 });

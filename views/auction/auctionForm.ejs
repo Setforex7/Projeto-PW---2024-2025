@@ -5,47 +5,47 @@
         <h1 class="poppins-bold">Create Auction</h1>
     </div>
     <form action="/auth/create-auction" method="POST" enctype="multipart/form-data">
-        <div class="form-group poppins-bold">
-            <label for="">Name</label>
-            <input type="text" name="name" class="poppins-regular" placeholder="Title">
+        <div class="form-group">
+            <label for="name" class="poppins-bold">Name</label>
+            <input type="text" name="name" class="poppins-regular" placeholder="Title" required>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">Description</label>
-            <input type="text" name="description" class="poppins-regular" placeholder="Title">
+        <div class="form-group">
+            <label for="description" class="poppins-bold">Description</label>
+            <input type="text" name="description" class="poppins-regular" placeholder="Description" required>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">Category</label>
-            <select name="category" class="poppins-bold" id="consoles">
+        <div class="form-group">
+            <label for="category" class="poppins-bold">Category</label>
+            <select name="category" class="poppins-bold" id="consoles" required>
                 <option value="Nintendo">Nintendo</option>
                 <option value="Playstation">Playstation</option>
                 <option value="XBox">XBox</option>
                 <option value="PSP">PSP</option>
             </select>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">State</label>
-            <select name="state" class="poppins-bold" id="consoles">
-                <option value="Excelent">Excelent</option>
+        <div class="form-group">
+            <label for="state" class="poppins-bold">State</label>
+            <select name="state" class="poppins-bold" id="consoles" required>
+                <option value="Excellent">Excellent</option>
                 <option value="Very Good">Very Good</option>
                 <option value="Good">Good</option>
             </select>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">Price</label>
-            <input type="number" name="price" placeholder="Price/€">
+        <div class="form-group">
+            <label for="price" class="poppins-bold">Price</label>
+            <input type="number" name="price" class="poppins-regular" placeholder="Price/€" required>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">Data De Começo</label>
-            <input type="date" name="sdate" placeholder="Price/€">
+        <div class="form-group">
+            <label for="sdate" class="poppins-bold">Start Date</label>
+            <input type="date" name="sdate" class="poppins-regular" placeholder="Start Date" required>
         </div>
-        <div class="form-group poppins-bold">
-            <label for="">Data De Término</label>
-            <input type="date" name="edate" placeholder="Price/€">
+        <div class="form-group">
+            <label for="edate" class="poppins-bold">End Date</label>
+            <input type="date" name="edate" class="poppins-regular" placeholder="End Date" required>
         </div>
-        <div class="upload-btn">
-            <button class="btn poppins-bold">Upload a file</button>
-            <input type="file" name="file" />
+        <div class="upload-btn full-width">
+            <button type="button" class="btn poppins-bold">Upload a file</button>
+            <input type="file" name="file" required/>
         </div>
-        <button type="submit" class="create-btn poppins-bold">Create</button>
+        <button type="submit" class="create-btn poppins-bold full-width">Create</button>
     </form>
 </dialog>

@@ -5,20 +5,27 @@
     <header class="nav-header">
         <nav class="navbar">
             <div class="left-section">
-                <img src="/images/flappybid.png" width="100" height="50" alt="">
+                <img src="/images/flappybid.png" width="100" height="50" alt="Logo">
             </div>
             <div class="right-section">
                 <ul class="list-items">
                     <li><a class="poppins-bold" href="/">Inicio</a></li>
-                    <li><a class="poppins-bold" href="">Sobre nós</a></li>
+                    <li><a class="poppins-bold" href="/about">Sobre nós</a></li>
                     <li><a class="poppins-bold" href="/auction">Leilões</a></li>
                     <% if(login.isLogged) { %>
-                    <li><a href="/auth/profile"><Button class="poppin-regular" id="profile">Profile</Button></a></li>
+                    <li><a href="/auth/profile"><Button class="poppins-bold login" id="profile">Profile</Button></a></li>
                     <% }else{ %>
-                        <li><Button class="poppins-bold" id="login-button">Login</Button></li>
+                        <li><Button class="poppins-bold login" id="login-button">Login</Button></li>
                     <% } %>
                 </ul>
+                <button class="hamburger-menu"  id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="close-menu" id="close-menu">&times;</button>
             </div>
         </nav>
     </header>
     <script src="/javascript/login.js" defer></script>
+    <script src="/javascript/navbar.js" defer></script>

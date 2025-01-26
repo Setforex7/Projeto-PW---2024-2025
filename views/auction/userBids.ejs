@@ -1,0 +1,32 @@
+<dialog class="user-auctions-bids" id="user-bids-dialog">
+    <div class="container">
+        <div class="header-user-auctions">
+            <img src="/images/leave.png" class="close-auction" id="close-user-bids" alt="">
+            <h2 class="poppins-bold header-title">Lances</h2>
+        </div>
+        <ul class="responsive-table-my-bids-auctions">
+            <li class="table-header poppins-bold">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Nome</div>
+                <div class="col col-3">Preço</div>
+                <div class="col col-4">Data</div>
+            </li>
+            <% for(let bid of userBids) { %>
+                <li class="table-row poppins-regular">
+                    <div class="col col-1" data-label="Id">
+                        <%= bid.auctionid %>
+                    </div>
+                    <div class="col col-2" data-label="Nome">
+                        <%= bid.name %>
+                    </div>
+                    <div class="col col-3" data-label="Lance mais alto">
+                        <%= bid.price %>€
+                    </div>
+                    <div class="col col-4" data-label="Data de começo">
+                        <%= bid.date %>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</dialog>

@@ -7,6 +7,7 @@ body{
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(21, 25, 112, 1) 62%, rgba(4, 14, 17, 1) 100%);
     height: 100%; /* Garante que o background ocupe 100% da altura da viewport */
     width: 100%; /* Garante que ocupe toda a largura */
+    overflow-x: hidden;
 }
 
 .main-section{
@@ -300,4 +301,121 @@ footer .box img {
     font-family: "Poppins", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+        height: 80vh;
+    }
+
+    .main-section .left-section {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .main-section .right-section {
+        width: 100%;
+        margin-top: 20px;
+        display: none; /* Hide right section on small screens */
+    }
+
+    .description-section {
+        height: auto;
+    }
+
+    .description-section .description-header-section {
+        height: 120px;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .description-section .description-content-section {
+        height: auto;
+        padding: 20px;
+    }
+
+    .company-section {
+        height: auto;
+    }
+
+    .company-section .company-header-section {
+        height: 120px;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .company-section .company-content-section {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        padding: 40px;
+    }
+
+    .bids-section {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .bids-section .floor{
+        display: none;
+    }
+
+    .bids-section .left-section {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: none; /* Hide left section on small screens */
+    }
+
+    .bids-section .right-section {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .bids-section .right-section .box-container {
+        width: 300px;
+        
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bids-section .right-section .box-container .box {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-section {
+        height: auto;
+        padding: 10px;
+    }
+
+    .social-section .social-icons-section {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .social-section .social-icons-section .social-media{
+        width: 100px;
+        height: 100px;
+    }
+
+    .main-section h2, .main-section p, .description-section .description-header-section, .description-section .description-content-section, .company-section .company-header-section, .company-section .company-content-section, .bids-section .right-section h1, .social-section h1, .social-section p {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .main-section .left-section button, .bids-section .right-section .box-container .box button {
+        width: 100%;
+        height: 50px;
+        margin: 10px 0;
+    }
 }

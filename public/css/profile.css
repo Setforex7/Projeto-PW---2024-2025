@@ -2,16 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    /*background-image: url('/images/inicialBackground.jpg');  Substitua com o caminho da sua imagem */
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(21, 25, 112, 1) 62%, rgba(4, 14, 17, 1) 100%);
     height: 100%;
-    /* Garante que o background ocupe 100% da altura da viewport */
     width: 100%;
-    /* Garante que ocupe toda a largura */
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +16,7 @@ main{
     height: 100vh;
 }
 
-main .mario{
+main .mario {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -27,7 +24,10 @@ main .mario{
     z-index: -1;
 }
 
-main .sub-main{
+main .sub-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     height: 80%;
     background-color: #fff;
@@ -35,7 +35,7 @@ main .sub-main{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-main .sub-main .left-section{
+main .sub-main .left-section {
     width: 30%;
     height: 100%;
     display: flex;
@@ -47,7 +47,7 @@ main .sub-main .left-section{
     color: #fff;
 }
 
-main .sub-main .left-section .top-section{
+main .sub-main .left-section .top-section {
     width: 50%;
     height: 30%;
     border-radius: 100%;
@@ -60,15 +60,34 @@ main .sub-main .left-section .separator {
     background-color: #fff;
 }
 
-main .sub-main .left-section .alt-name{
+main .sub-main .left-section .logout-a{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 300px;
+    width: 50%;
     height: 50px;
     border-radius: 5px;
-    margin: 5px 0px 0px 10px;
+    border: none;
+    background-color: rgb(243, 24, 24);
+    color: #fff;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+main .sub-main .left-section .logout-a:hover {
+    background-color: rgb(185, 25, 25);
+    transition: 0.5s;
+}
+
+main .sub-main .left-section .alt-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    height: 50px;
+    border-radius: 5px;
     border: none;
     background-color: #fff;
     color: rgb(220, 168, 55);
@@ -76,21 +95,19 @@ main .sub-main .left-section .alt-name{
     transition: 0.3s;
 }
 
-main .sub-main .left-section .alt-name:hover{
+main .sub-main .left-section .alt-name:hover {
     background-color: #f3f3f3;
     transition: 0.3s;
     cursor: pointer;
 }
 
-main .sub-main .left-section .logout{
+main .sub-main .left-section .logout {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 300px;
     height: 50px;
     border-radius: 5px;
-    margin: 5px 0px 0px 10px;
     border: none;
     background-color: rgb(243, 24, 24);
     color: #fff;
@@ -98,16 +115,213 @@ main .sub-main .left-section .logout{
     transition: 0.3s;
 }
 
-main .sub-main .left-section .logout:hover{
+main .sub-main .left-section .logout:hover {
     background-color: rgb(185, 25, 25);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-main .sub-main .right-section{
+main .sub-main .right-section {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
 
+main .sub-main .right-section .user-info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+main .sub-main .right-section .user-info .info-box {
+    width: 100%;
+    height: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+}
+
+/* Adjust .info-box to maintain consistent layout */
+.main .sub-main .right-section .user-info .info-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Ensure forms take full width and maintain spacing */
+.main .sub-main .right-section .user-info form {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+main .sub-main .right-section .user-info form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Style input fields to align with buttons */
+.main .sub-main .right-section .user-info .email-input,
+.main .sub-main .right-section .user-info .iban-input,
+.main .sub-main .right-section .user-info .phone-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+main .sub-main .right-section .user-info .change-phonenumber,
+main .sub-main .right-section .user-info .change-email,
+main .sub-main .right-section .user-info .change-iban{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .sub-main .right-section .user-info .change-button{
+    width: 70%;
+    height: 50px;
+    color: #fff;
+    background-color: #44AF35;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+}
+
+main .sub-main .right-section .user-info .email,
+.iban,
+.phone {
+    width: 70%;
+    height: 50px;
+    color: #fff;
+    background-color: rgb(220, 168, 55);
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+}
+
+main .sub-main .right-section .user-info .email:hover,
+.iban:hover,
+.phone:hover {
+    cursor: pointer;
+    background-color: rgb(194, 149, 51);
+    transition: 0.5s;
+}
+
+main .sub-main .right-section .user-info .email-title,
+.iban-title,
+.phone-title {
+    font-size: 20px;
+}
+
+/* Optional: Style for hidden h3 elements when form is active */
+.main .sub-main .right-section .user-info .email-title,
+.main .sub-main .right-section .user-info .iban-title,
+.main .sub-main .right-section .user-info .phone-title {
+    transition: display 0.3s ease;
+    /* Ensure h3 elements occupy space even when hidden for smoother transitions */
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Modify h3 visibility without affecting layout */
+.main .sub-main .right-section .user-info .email-title.hidden,
+.main .sub-main .right-section .user-info .iban-title.hidden,
+.main .sub-main .right-section .user-info .phone-title.hidden {
+    display: none;
+}
+
+/* Hide h3 elements when 'hidden' class is applied */
+.main .sub-main .right-section .user-info .email-title.hidden,
+.main .sub-main .right-section .user-info .iban-title.hidden,
+.main .sub-main .right-section .user-info .phone-title.hidden {
+    display: none;
+}
+
+/* Optional: Enhance transition for smoother hiding/showing */
+.main .sub-main .right-section .user-info .email-title,
+.main .sub-main .right-section .user-info .iban-title,
+.main .sub-main .right-section .user-info .phone-title {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.main .sub-main .right-section .user-info .email-title.hidden,
+.main .sub-main .right-section .user-info .iban-title.hidden,
+.main .sub-main .right-section .user-info .phone-title.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+main .sub-main .right-section .user-info .email-input,
+main .sub-main .right-section .user-info .iban-input,
+main .sub-main .right-section .user-info .phone-input {
+    width: 70%;
+    height: 50px;
+    padding: 15px;
+}
+
+/* Maintain consistent button styles when active */
+.main .sub-main .right-section .user-info button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+main .sub-main .right-section .user-actions .action-button{
+    width: 70%;
+    height: 50px;
+    color: #fff;
+    background-color: #44AF35;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+}
+
+main .sub-main .right-section .user-actions .action-button:hover {
+    background-color: #328427;
+    transition: 0.5s;
+}
+
+main .sub-main .right-section .user-actions {
+    width: 50%;
+    height: 100%;
+    background-color: #009BD9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 /*? Fontes */
@@ -122,4 +336,115 @@ main .sub-main .right-section{
     font-family: "Poppins", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 1300px) {
+    main .sub-main {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    main .sub-main .left-section {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    main .sub-main .left-section .alt-name {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    main .sub-main .left-section .logout {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    main .sub-main .right-section {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    main .sub-main .right-section .user-info {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    main .sub-main .right-section .user-info .info-box {
+        padding: 10px;
+        height: auto;
+    }
+
+    main .sub-main .right-section .user-info .email,
+    main .sub-main .right-section .user-info .iban,
+    main .sub-main .right-section .user-info .phone {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    main .sub-main .right-section .user-info .email-input,
+    main .sub-main .right-section .user-info .iban-input,
+    main .sub-main .right-section .user-info .phone-input {
+        width: 100%;
+    }
+
+    main .sub-main .right-section .user-actions {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    main .mario {
+        display: none;
+    }
+
+    main .sub-main {
+        width: 100%;
+        padding: 10px;
+        height: auto;
+    }
+
+    main .sub-main .left-section {
+        gap: 10px;
+    }
+
+    main .sub-main .left-section .alt-name,
+    main .sub-main .left-section .logout-a {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    main .sub-main .right-section .user-info .info-box {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    main .sub-main .right-section .user-info .email-title,
+    main .sub-main .right-section .iban-title,
+    main .sub-main .right-section .phone-title {
+        font-size: 14px;
+    }
+
+    main .sub-main .right-section .user-actions {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
+    }
 }

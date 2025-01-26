@@ -24,25 +24,27 @@
             <h1 class="poppins-bold">Leilões</h1>
         </div>
         <div class="header-text">
-            <h1 class="poppins-bold title">Temos 550,321 Jogos a serem leiloados agora!</h1>
+            <h1 class="poppins-bold title">Temos <%= auctions.length %> a serem leiloados agora!</h1>
             <h3 class="poppins-bold subtitle">E tu? do que estás a espera?</h3>
         </div>
         <div class="content">
             <div class="inputs">
-                <input type="text" placeholder="Pesquisa aqui..."  class="poppins-regular">
-                <button class="poppins-bold filter"><img src="/images/filter-logo.png" width="20" height="20" alt=""></button>
-                <button class="poppins-bold search">Pesquisar</button>
+                <form method="GET" class="search-form" action="/auction" >
+                    <input type="text" placeholder="Pesquisa aqui..." name="name" class="poppins-regular">
+                    <button class="poppins-bold filter"><img src="/images/filter-logo.png" width="20" height="20" alt=""></button>
+                    <button class="poppins-bold search">Pesquisar</button>
+                </form>
             </div>
                 <div class="box-container">
                     <% for(let i = 0; i < auctions.length; i++) { %>
                     <div class="box">
                         <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                        <img class="game" src="./uploads/<%= auctions[i].imagePath %>" alt="">
+                        <img class="game" src="/uploads/<%= auctions[i].img %>" alt="">
                         <h5 class="poppins-bold"><%= auctions[i].name %></h5>
                         <p class="poppins-regular"><%= auctions[i].category %></p>
                         <p class="poppins-regular">Last Bid: <%= auctions[i].price %>€</p>
                         <p class="poppins-regular timer" data-endtime="<%= auctions[i].edate %>">Tempo restante: --:--:--</p>
-                        <button class="poppins-bold"><a href="/bid-auction">Leiloar</a></button>
+                        <button class="poppins-bold"><a href="/bid-auction?auctionid=<%= auctions[i].auctionid %>&image=<%= auctions[i].img %>&price=<%= auctions[i].price %>&category=<%= auctions[i].category %>&state=<%= auctions[i].state %>&userid=<%= auctions[i].userid %>&name=<%= auctions[i].name %>&description=<%= auctions[i].description %>&sdate=<%= auctions[i].sdate %>&edate=<%= auctions[i].edate %>">Leiloar</a></button>
                     </div>
                     <% } %>
                 </div>

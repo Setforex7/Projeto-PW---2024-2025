@@ -1,0 +1,26 @@
+<dialog class="user-auctions-finalized">
+    <div class="container">
+        <div class="header-user-auctions">
+            <img src="/images/leave.png" class="close-auction" id="close-user-auctions-finalized-dialog" alt="">
+            <h2 class="poppins-bold header-title">Leilões terminados</h2>
+        </div>
+        <ul class="responsive-table-my-finalized-auctions">
+            <li class="table-header poppins-bold">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Nome</div>
+                <div class="col col-3">Lance mais alto</div>
+                <div class="col col-4">Data de começo</div>
+                <div class="col col-5">Data de término</div>
+            </li>
+            <% for(let userAuction of userAuctionsFinalized) { %>
+                <li class="table-row poppins-regular">
+                    <div class="col col-1" data-label="Id"><%= userAuction.auctionid %></div>
+                    <div class="col col-2" data-label="Nome"><%= userAuction.name %></div>
+                    <div class="col col-3" data-label="Lance mais alto"><%= userAuction.price %>€</div>
+                    <div class="col col-4" data-label="Data de começo"><%= userAuction.sdate %></div>
+                    <div class="col col-5" data-label="Data de término"><%= userAuction.edate %></div>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</dialog>

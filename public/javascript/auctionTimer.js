@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   timers.forEach((timer) => {
     const endTime = new Date(timer.dataset.endtime).getTime();
-    console.log(endTime);
+    endTime;
 
     function updateTimer() {
       const now = Date.now();
@@ -14,11 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return clearInterval(interval);
       }
 
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
       const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-      timer.textContent = `Tempo restante: ${hours}h ${minutes}m ${seconds}s`;
+      timer.textContent = `Tempo restante: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateTimer(); // Chamada inicial para evitar atraso

@@ -45,17 +45,29 @@ body{
     width: 200px;
     height: 40px;
     border-radius: 5px;
-    margin: 5px 0px 0px 10px;
+    margin: 5px 10px 0 10px;
     border: none;
     background-color: #44AF35;
     color: #ffffff;
+}
+
+.main-section .middle-section .button-section .find,
+.main-section .middle-section .button-section .create {
+    width: 200px;
+    height: 50px;
+}
+
+.main-section .middle-section .button-section .find:hover,
+.create:hover{
+    background-color: #328427;
+    transition: 0.5s;
 }
 
 /* ! SECÇÃO DAS CARTAS */
 
 .mid-section{
     width: 100%;
-    height: 130vh;
+    height: auto;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -64,7 +76,7 @@ body{
 
 .mid-section .header{
     width: 100%;
-    height: 13%;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +118,14 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+}
+
+.mid-section .content .inputs .search-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .mid-section .content .inputs input{
@@ -156,7 +175,7 @@ body{
 .mid-section .content .box-container{
     margin-top: 50px;
     width: 100%;
-    height: 65%;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
@@ -168,11 +187,11 @@ body{
     color: #000;
     background-color: #fff;
     border: 0.5px solid #000;
-    width: 20%;
-    height: 62%;
+    max-height: 420px;
+    min-height: 420px;
     flex: 1 1 calc(25% - 16px);
     max-width: calc(25% - 16px);
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -235,6 +254,11 @@ footer .box img {
     left: 15%;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 /*? Fontes */
 
 .poppins-bold {
@@ -247,4 +271,43 @@ footer .box img {
     font-family: "Poppins", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .main-section {
+        height: 80vh;
+    }
+    .main-section img {
+        object-fit: cover;
+    }
+    .main-section .middle-section {
+        padding: 10px;
+    }
+    .main-section .middle-section .text-section,
+    .main-section .middle-section .button-section {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .main-section .middle-section .button-section {
+        flex-direction: column;
+    }
+    .main-section .middle-section .button-section button {
+        width: 80%;
+        margin: 5px 0;
+    }
+    .main-section .middle-section .button-section .find,
+    .main-section .middle-section .button-section .create {
+        width: 100%;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-section .middle-section .button-section .find,
+    .main-section .middle-section .button-section .create {
+        width: 100%;
+        height: 50px; /* Consistent height */
+        margin: 5px 0; /* Remove side margins for full width */
+    }
 }

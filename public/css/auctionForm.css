@@ -2,10 +2,11 @@
     padding: 0;
     margin: 0;
     width: 40%;
-    height: 90vh;
+    height: auto; /* Adjust height to accommodate all content */
+    min-height: 90vh; /* Ensure minimum height */
     position: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: #333;
     /* Garante que o .auction-dialog fique na janela */
     top: 50%;
@@ -25,7 +26,7 @@
     width: 60%;
     height: 60%;    
     margin-top: 180px;
-    margin-left: 320px;
+    margin-left: 240px;
     z-index: -1;
 }
 
@@ -43,19 +44,23 @@
 }
 
 .upload-btn {
+    /* Ensure the upload button is always visible */
     position: relative;
-    overflow: hidden;
-    display: inline-block;
+    display: flex; /* Changed from inline-block to flex for better alignment */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Make it full width */
+    margin-top: 20px; /* Add spacing */
 }
 
 .btn {
-    width: 50%;
-    height: 100%;
+    width: 100%; /* Make upload button full width */
+    height: 50px; /* Increased height */
     border: 2px solid #44AF35;
     color: #fff;
     background-color: #44AF35;
     padding: 8px 20px;
-    border-radius: 6px;
+    border-radius: 2px;
     font-size: 16px;
     font-weight: bold;
     transition: 0.5s;
@@ -67,6 +72,9 @@
     left: 0;
     top: 0;
     opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -80,30 +88,39 @@
     width: 50%;
     height: 100%;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px; /* Increased gap for better spacing */
 }
 
 .auction-dialog form .form-group{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
     color: #fff;
+    min-height: 60px; /* Ensure fields are sufficiently large */
 }
 
-.auction-dialog form input{
+.auction-dialog form .full-width {
+    grid-column: 1 / -1;
+}
+
+.auction-dialog form input,
+.auction-dialog form select {
     width: 100%;
-    height: 30px;
-    padding: 5px;
-    border-radius: 3px;
-    background-color: #ebebeb;
-    border: 1px solid #fff;
+    height: 50px; /* Increased height */
+    padding: 10px; /* Increased padding for better readability */
+}
+
+.auction-dialog form .btn,
+.auction-dialog form .create-btn {
+    width: 100%;
+    height: 60px; /* Increased height to appear fully */
 }
 
 .auction-dialog form select{
-    width: 40%;
-    height: 30px;
     background-color: #44AF35;
     border: 2px solid #44AF35;
     color: #fff;
@@ -111,8 +128,6 @@
 }
 
 .auction-dialog form .create-btn{
-    width: 100%;
-    height: 50px;
     background-color: #44AF35;
     border: 2px solid #44AF35;
     color: #fff;
@@ -131,4 +146,60 @@
     top: 2%;
     width: 20px;
     height: 20px;
+}
+
+@media (max-width: 1200px) {
+
+    .auction-dialog .luigi {
+        display: none;
+    }
+
+    .auction-dialog form {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) { /* Adjust breakpoint as needed */
+    .auction-dialog {
+        width: 90%;
+        height: auto;
+    }
+    .auction-dialog .luigi {
+        display: none;
+    }
+    .auction-dialog form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .auction-dialog form .form-group {
+        width: 100%;
+    }
+    .auction-dialog form .full-width {
+        /* Ensure full width on small screens */
+        grid-column: 1 / -1;
+    }
+    .auction-dialog form .create-btn {
+        height: 60px; /* Ensure create button height on small screens */
+    }
+    .upload-btn {
+        /* Adjust upload button to prevent stretching */
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .upload-btn .btn {
+        width: 100%; /* Ensure full width */
+        height: 25px; /* Match other input heights */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+    .upload-btn input[type=file] {
+        width: 100%;
+        height: 25px; /* Match other input heights */
+    }
+    .create-btn {
+        /* Ensure the create button is fully visible */
+        width: 100%;
+        height: 100px;
+    }
 }

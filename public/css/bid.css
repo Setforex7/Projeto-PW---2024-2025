@@ -3,6 +3,10 @@
 
 body {
     background-image: linear-gradient(to bottom, #009BD9, #86d0ee);
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .bid-container {
@@ -13,6 +17,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    gap: 20px;
 }
 
 .bid-container .left-section {
@@ -23,9 +28,9 @@ body {
     justify-content: center;
 }
 
-.bid-container .left-section .game-img{
+.bid-container .left-section .game-img {
     width: 80%;
-    height: 100%;
+    max-height: 450px;
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
@@ -34,12 +39,11 @@ body {
     width: 60%;
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     justify-content: center;
     color: #fff;
 }
 
-.bid-container .right-section .auction-info{
+.bid-container .right-section .auction-info {
     width: 50%;
     height: 100%;
     display: flex;
@@ -51,86 +55,197 @@ body {
     color: #5f5f5f;
 }
 
-.bid-container .right-section .auction-bid{
+.bid-container .right-section .auction-bid {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;  
+    gap: 20px;
 }
 
-.bid-container .right-section .auction-bid .bid{
-    width: 50%;
+.bid-container .right-section .auction-bid .bid,
+.bid-container .right-section .auction-bid .contact,
+.bid-container .right-section .auction-bid .delete,
+.bid-container .right-section .auction-bid .report {
+    width: 100%;
     height: 50px;
     font-size: 15px;
-    background-color: rgb(220, 168, 55);
-    color: #fff;
     border: none;
     border-radius: 5px;
-    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
 }
 
-.bid-container .right-section .auction-bid .bid:hover{
+.bid-container .right-section .auction-bid .bid {
+    background-color: rgb(220, 168, 55);
+    color: #fff;
+}
+
+.bid-container .right-section .auction-bid .bid:hover {
     background-color: rgb(194, 149, 51);
     cursor: pointer;
-    transition: 0.5s;
 }
 
 .bid-container .right-section .auction-bid .contact {
-    width: 50%;
-    height: 50px;
-    font-size: 15px;
     background-color: #44AF35;
     color: #fff;
+}
+
+.bid-container .right-section .auction-bid .contact:hover {
+    background-color: #3a8c2f;
+    cursor: pointer;
+}
+
+.bid-container .right-section .auction-bid .delete,
+.bid-container .right-section .auction-bid .report {
+    background-color: #E53935;
+    color: #fff;
+}
+
+.bid-container .right-section .auction-bid .delete:hover,
+.bid-container .right-section .auction-bid .report:hover {
+    background-color: #cb3230;
+    cursor: pointer;
+}
+
+.bid-container .right-section .auction-bid .bid-form {
+    width: 100%;
+    height: 80px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bid-container .right-section .auction-bid .bid-form .bid-value {
+    width: 100%;
+    height: 40%;
     border: none;
     border-radius: 5px;
+    padding: 10px;
+}
+
+.bid-container .right-section .auction-bid .bid-form .bid-send {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.bid-container .right-section .auction-bid .contact:hover{
-    background-color: #3a8c2f;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.bid-container .right-section .auction-bid .report {
-    width: 50%;
-    height: 50px;
-    font-size: 15px;
-    background-color: #E53935;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(0, 215, 0);
     color: #fff;
     border: none;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    transition: 0.5s;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.bid-container .right-section .auction-bid .report:hover {
-    background-color: #3a8c2f;
+.bid-container .right-section .auction-bid .bid-form .bid-send:hover {
+    background-color: rgb(0, 180, 0);
     cursor: pointer;
-    transition: 0.5s;
 }
 
-.bid-container .right-section .auction-bid .img-contact{
+.bid-container .right-section .auction-info .price {
+    font-size: 30px;
+}
+
+.bid-container .right-section .auction-info .category {
+    font-size: 25px;
+}
+
+.bid-container .right-section .auction-info .state {
+    font-size: 25px;
+}
+
+.bid-container .right-section .auction-info .name {
+    font-size: 40px;
+}
+
+.bid-container .right-section .auction-bid .img-action{
     width: 25px;
     height: 25px;
 }
 
-.bid-container .right-section .auction-info .price { font-size: 30px }
-.bid-container .right-section .auction-info .category { font-size: 25px }
-.bid-container .right-section .auction-info .state { font-size: 25px }
-.bid-container .right-section .auction-info .name { font-size: 40px }
+.list-bids {
+    width: 100%;
+    height: 70vh;
+    padding: 20px;
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.list-bids .left-tab {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-bids .left-tab .bids-image {
+    width: 60%;
+    height: 100%;
+}
+
+.list-bids .right-tab {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-bids .right-tab .bid-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.list-bids .right-tab .bid-container .bid-box {
+    width: 80%;
+    height: 20%;
+    padding: 10px;
+    color: #fff;
+    background-color: rgb(220, 168, 55);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    z-index: 1;
+}
+
+.list-bids .right-tab .bid-container .black-line {
+    width: 4px;
+    height: 40%;
+    background-color: #4e4e4e;
+    position: absolute;
+    margin-top: 5%;
+}
+
+.list-bids .right-tab .bid-container .top-bids-header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-bids .right-tab .bid-container .top-bids-header .title {
+    font-size: 40px;
+}
+
+
 
 /* ! BOWSER JR ( Imagem do footer ) */
-
 footer .box img {
     position: relative;
     bottom: 50px;
@@ -138,7 +253,6 @@ footer .box img {
 }
 
 /*? Fontes */
-
 .poppins-bold {
     font-family: "Poppins", serif;
     font-weight: 700;
@@ -149,4 +263,61 @@ footer .box img {
     font-family: "Poppins", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .bid-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .bid-container .left-section,
+    .bid-container .right-section {
+        width: 100%;
+    }
+
+    .bid-container .left-section .game-img {
+        width: 100%;
+    }
+
+    .bid-container .right-section {
+        flex-direction: column;
+    }
+
+    .bid-container .right-section .auction-info,
+    .bid-container .right-section .auction-bid {
+        width: 100%;
+    }
+
+    .list-bids {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .list-bids .left-tab,
+    .list-bids .right-tab {
+        width: 100%;
+    }
+
+    .list-bids .left-tab .bids-image {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .bid-container .left-section,
+    .bid-container .right-section {
+        width: 50%;
+    }
+
+    .list-bids .left-tab,
+    .list-bids .right-tab {
+        width: 50%;
+    }
+
+    .list-bids .left-tab .bids-image {
+        width: 80%;
+    }
 }

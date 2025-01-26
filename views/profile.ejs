@@ -1,6 +1,12 @@
 <%- include('./includes/head.ejs') %>
     <link rel="stylesheet" href="/css/profile.css">
-<%- include('./includes/navbar.ejs') %>
+    <link rel="stylesheet" href="/css/userBids.css">
+    <link rel="stylesheet" href="/css/userAuctions.css">
+    <link rel="stylesheet" href="/css/userFinishedAuction.css">
+    <%- include('./includes/navbar.ejs') %>
+    <%- include('./auction/userFinishedAuction.ejs') %>
+    <%- include('./auction/userAuctions.ejs') %>
+    <%- include('./auction/userBids.ejs') %>
     <main>
         <img src="/images/initialBack.jpg" class="mario" alt="">
         <div class="sub-main">
@@ -12,11 +18,42 @@
                 <div class="separator"></div>
                 <h1 class="poppins-bold"><%= login.user.username %></h1>
                 <button class="alt-name poppins-bold">Alterar Nome<img src="/images/edit.png" width="30" height="30" alt=""></button>
-                <a href="/auth/logout"><button class="logout poppins-bold">Log out<img src="/images/logout.png" width="30" height="30" alt=""></button></a>
+                <a class="logout-a poppins-bold" href="/auth/logout">Log out<img src="/images/logout.png" width="30" height="30" alt=""></a>
             </div>
             <div class="right-section">
-                
+                <div class="user-info poppins-bold">
+                    <div class="info-box">
+                        <button class="email poppins-bold" data-toggle="email-form">Alterar email</button>
+                        <form action="/auth/phonenumber-change" class="change-phonenumber" method="POST" id="email-form" style="display: none;">
+                            <input type="text" class="email-input" value='<%= login.user.email || "" %>' placeholder="Email aqui...">
+                            <button type="submit" class="poppins-bold change-button">Alterar</button>
+                        </form>
+                        <h3 class="email-title poppins-bold"><%= login.user.email %></h3>
+                    </div>
+                    <div class="info-box">
+                        <button class="iban poppins-bold" data-toggle="iban-form">Alterar iban</button>
+                        <form action="/auth/phonenumber-change" class="change-iban" method="POST" id="iban-form" style="display: none;">
+                            <input type="text" class="iban-input" value='<%= login.user.iban || "" %>' placeholder="Iban aqui...">
+                            <button type="submit" class="poppins-bold change-button">Alterar</button>
+                        </form>
+                        <h3 class="iban-title poppins-bold"><%= login.user.iban || "Ainda sem iban" %></h3>
+                    </div>
+                    <div class="info-box">
+                        <button class="phone poppins-bold" data-toggle="phone-form">Alterar telemóvel</button>
+                        <form action="/auth/phonenumber-change" class="change-phonenumber" method="POST" id="phone-form" style="display: none;">
+                            <input type="text" class="phone-input" value='<%= login.user.phonenumber || "" %>' placeholder="Telemóvel aqui...">
+                            <button type="submit" class="poppins-bold change-button">Alterar</button>
+                        </form>
+                        <h3 class="phone-title poppins-bold"><%= login.user.phonenumber || "Ainda sem número de telemóvel" %></h3>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <button id="my-auctions-button" class="poppins-bold action-button">Leilões</button>
+                    <button id="my-finalized-auctions"class="poppins-bold action-button">Leilões finalizados</button>
+                    <button id="my-auction-bids" class="poppins-bold action-button">Lances</button>
+                </div>
             </div>
         </div>
     </main>
+    <script src="/javascript/profile.js" defer></script>
 <%- include('./includes/end.ejs') %>
