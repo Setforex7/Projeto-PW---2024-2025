@@ -41,7 +41,7 @@
                         <button class="poppins-bold report">Denunciar <img src="/images/proibido.png" class="img-action" alt=""></button>
                     <% } %>
                     <% if (login.user.userid == auction.userid) { %>
-                        <form action="/auth/delete-auction?auctionid=<%= auction.auctionid %>" method="POST" class="delete-form">
+                        <form action="/auth/delete-auction?auctionid=<%= auction.auctionid %>" onsubmit="return confirm('Tem certeza que deseja apagar este leilão?')" method="POST" class="delete-form">
                             <button class="poppins-bold delete">Apagar Leilão</button>
                         </form>
                     <% } %>

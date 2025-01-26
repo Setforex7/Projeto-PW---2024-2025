@@ -21,7 +21,7 @@
                     <div class="col col-4" data-label="Data de começo"><%= userAuction.sdate %></div>
                     <div class="col col-5" data-label="Data de término"><%= userAuction.edate %></div>
                     <div class="col col-6" data-label="Apagar leilão">
-                        <form action="/auth/delete-auction" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este leilão?');">
+                        <form action="/auth/delete-auction" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este leilão?')">
                             <input type="hidden" name="auctionid" value="<%= userAuction.auctionid %>">
                             <button type="submit" class="delete-button">Apagar</button>
                         </form>

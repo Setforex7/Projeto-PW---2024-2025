@@ -103,6 +103,16 @@ module.exports = class Auction {
     }
   }
 
+  static async fetchSixFeaturedAuctions() {
+    try{
+      const featuredAuctions = await db.query('SELECT * FROM "Auctions" LIMIT 6');
+      return featuredAuctions.rows;
+    }catch(err){
+      console.error("Erro ao ir buscar os leilões em destaque:", err);
+      throw err;
+    }
+  }
+
   static async fetchAuctionById(auctionid) {
     try{
       const auction = await db.query('SELECT * FROM "Auctions" WHERE auctionid = $1', [auctionid]);

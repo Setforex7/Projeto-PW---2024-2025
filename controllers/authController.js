@@ -67,7 +67,7 @@ exports.logout = (req, res, next) => {
   }
 };
 
-//!
+//! load da pagina de perfil
 exports.profilePage = async (req, res, next) => {
   const userAuctionsFormatted = [];
   const userAuctionsFinalized = [];
@@ -78,7 +78,7 @@ exports.profilePage = async (req, res, next) => {
 
   const userBids = [];
   const userAllBids = await Bid.getUserAllBids(req.session.credentials.userid) || [];
-  console.log(userAllBids);
+
   for(let bid of userAllBids){
     let auction = await Auction.fetchAuctionById(bid.auctionid);
     userBids.push({
@@ -144,7 +144,7 @@ exports.createAuction = async (req, res, next) => {
 
   //? Verifica se existe sessão ou não
   if (!req.session.credentials) {
-    throw new Error("Sessão inválida");
+    return res.redirect("/auction");
   }
 
   if(sdate > edate || sdate < new Date().toISOString().split("T")[0]){
@@ -183,6 +183,7 @@ exports.createAuction = async (req, res, next) => {
   }
 };
 
+//! fazer uma bid
 exports.makeBid = async (req, res, next) => {
   const { value } = req.body;
   const { auctionid, price, bids } = req.query;
@@ -254,43 +255,72 @@ exports.makeBid = async (req, res, next) => {
   res.render("auction/bid", { login: User.validateLogin(req.session.credentials), auction: auction, bids: renderBids });
 }
 
+//! apagar um leilao
 exports.deleteAuction = async (req, res, next) => {
   try {
-    const auctionid = req.query.auctionid || req.body.auctionid || req.params.auctionid;
-    await Auction.deleteAuction(auctionid);
+      const auctionid = req.query.auctionid || req.body.auctionid || req.params.auctionid;
+      await Auction.deleteAuction(auctionid);
 
-    const userAuctionsFormatted = [];
+      const userAuctionsFinalized = [];
+      const userAuctionsFormatted = [];
+      const userAuctions = await Auction.fetchUserAuctions(req.session.credentials.userid) || [];
 
-    const userAuctions = await Auction.fetchUserAuctions(req.session.credentials.userid) || [];
+  if (userAuctions.length !== 0) {
+      for (let auction of userAuctions) {
+          let sdate = auction.sdate;
+          let edate = auction.edate;
+          let sDateString = sdate.toISOString();
+          let eDateString = edate.toISOString();
 
-    if(userAuctions.length !== 0){
-      for(let auction of userAuctions){
-        let sdate = auction.sdate;
-        let edate = auction.edate;
-        let sDateString = sdate.toISOString();
-        let eDateString = edate.toISOString();
-
-        if(auction.finalized){
-          continue;
-        }
-        userAuctionsFormatted.push({
-          auctionid: auction.auctionid,
-          name: auction.name,
-          description: auction.description,
-          category: auction.category,
-          state: auction.state,
-          sdate: sDateString.split("T")[0],
-          edate: eDateString.split("T")[0],
-          price: auction.price.toFixed(2).replace(".", ","),
-          img: auction.image,
-          userid: auction.userid,
-          finalized: auction.finalized
-        });
-      };
+          if (auction.finalized) {
+              userAuctionsFinalized.push({
+                  auctionid: auction.auctionid,
+                  name: auction.name,
+                  description: auction.description,
+                  category: auction.category,
+                  state: auction.state,
+                  sdate: sDateString.split("T")[0],
+                  edate: eDateString.split("T")[0],
+                  price: auction.price.toFixed(2).replace(".", ","),
+                  img: auction.image,
+                  userid: auction.userid,
+                  finalized: auction.finalized,
+              });
+              continue;
+          }
+              userAuctionsFormatted.push({
+              auctionid: auction.auctionid,
+              name: auction.name,
+              description: auction.description,
+              category: auction.category,
+              state: auction.state,
+              sdate: sDateString.split("T")[0],
+              edate: eDateString.split("T")[0],
+              price: auction.price.toFixed(2).replace(".", ","),
+              img: auction.image,
+              userid: auction.userid,
+              finalized: auction.finalized,
+          });
+      }
   }
 
-    res.render("profile", { login: User.validateLogin(req.session.credentials),
-                            userAuctions: userAuctionsFormatted });
+  const userBids = [];
+  const userAllBids = await Bid.getUserAllBids(req.session.credentials.userid) || [];
+  
+  for(let bid of userAllBids){
+      let auction = await Auction.fetchAuctionById(bid.auctionid);
+      userBids.push({
+          auctionid: bid.auctionid,
+          name: auction.name,
+          price: bid.value.toFixed(2).replace(".", ","),
+          date: bid.date.toISOString().split("T")[0],
+      });
+  }
+
+  res.render("profile", { login: User.validateLogin(req.session.credentials),
+                                userAuctions: userAuctionsFormatted,
+                                userAuctionsFinalized: userAuctionsFinalized,
+                                userBids: userBids });
   } catch (err) {
     console.error("Erro ao apagar o leilão:", err);
     res.status(500).json({ error: "Erro ao apagar o leilão." });

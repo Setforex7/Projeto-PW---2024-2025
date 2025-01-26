@@ -12,7 +12,6 @@ const methodOverride = require("method-override");
 
 //? Import das routes dos admins
 const auth = require('./routes/auth');
-const adminRoutes = require('./routes/admin');
 const mainRoutes = require('./routes/main');
 
 //? APP vai guardar todas as funcionalidades do express
@@ -51,7 +50,6 @@ app.use((req, res, next) => {
 //? Como agora separamos os pedidos referentes a diferentes tipos de ações/conteúdos
 //? apenas temos de chamar o app.use e passar o ficheir que contém o trabatamento de cada um desses tipos de conteúdos
 //* Ter em atenção a ordem de cima para baixo dos tipos de request.
-app.use('/admin', adminRoutes.router);
 app.use('/auth', auth.router);
 app.use(mainRoutes.router);
 

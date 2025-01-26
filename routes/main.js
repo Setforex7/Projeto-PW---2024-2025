@@ -6,6 +6,7 @@ const mainController = require('../controllers/mainController');
 const router = express.Router();
 
 router.get("/", mainController.initialPage);
+router.get("/us", mainController.usPage);
 router.get('/auction', mainController.auctionPage);
 router.get("/bid-auction", mainController.bidPage);
 

@@ -177,7 +177,7 @@ body{
     border-radius: 8px;
     padding: 20px;
     flex: calc(25% - 10px);
-    width: 90px;
+    width: 270px;
     height: 340px;
     display: flex;
     flex-direction: column;
@@ -303,6 +303,50 @@ footer .box img {
     font-style: normal;
 }
 
+@media (max-width: 1200px) {
+    .bids-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 20px;
+    }
+
+    .bids-section .floor{
+        display: none;
+    }
+
+    .bids-section .right-section .box-container .box .green-mushroom{
+        display: none;
+    }
+
+    .bids-section .left-section {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: none; /* Hide left section on small screens */
+    }
+
+    .bids-section .right-section {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .bids-section .right-section .box-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .bids-section .right-section .box-container .box {
+        width: calc(50% - 20px); /* Allow two cards per row */
+        height: 320px;
+        padding: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
 @media (max-width: 768px) {
     .main-section {
         flex-direction: column;
@@ -377,8 +421,8 @@ footer .box img {
     }
 
     .bids-section .right-section .box-container {
-        width: 300px;
-        
+        width: 60%;
+        display: flex;
         flex-direction: column;
         gap: 20px;
     }

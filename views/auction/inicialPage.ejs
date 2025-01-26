@@ -72,54 +72,20 @@
             <h1 class="poppins-bold">Recomendado para ti</h1>
             
             <div class="box-container">
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
-                <div class="box">
-                    <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
-                    <img class="game" src="/images/tft.jpg" alt="">
-                    <h5 class="poppins-bold">Super Mario Bros</h5>
-                    <p class="poppins-regular">Nintendo</p>
-                    <p class="poppins-regular">Last Bid: 20,00€</p>
-                    <button class="poppins-bold">Leiloar</button>
-                </div>
+                <% for(let auction of auctions) { %>
+                    <div class="box">
+                        <img class="green-mushroom" src="/images/green-mushroom.png" alt="">
+                        <img class="game" src="/images/tft.jpg" alt="">
+                        <h5 class="poppins-bold"><%= auction.name %></h5>
+                        <p class="poppins-regular"><%= auction.category %></p>
+                        <p class="poppins-regular">Last Bid: <%= auction.price %>€</p>
+                        <% if(!login) { %>
+                            <button class="poppins-bold" id="profile">Leiloar</button>
+                        <% }else{ %>
+                            <button class="poppins-bold">Leiloar</button>
+                        <% } %>
+                    </div>
+                <% } %>
             </div>
         </div>
         <img class="floor" src="/images/floor-mario.png" alt="">
@@ -141,4 +107,5 @@
             <img class="social-media" src="/images/reddit.png" alt="">
         </div>
     </section>
+    <script src="/javascript/inicialPage.js"></script>
 <%- include('../includes/end.ejs') %>

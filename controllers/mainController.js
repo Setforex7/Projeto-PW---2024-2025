@@ -65,7 +65,7 @@ exports.initialPage = async (req, res, next) => {
           margin: auto;
         }
         .header {
-          background-color: #4CAF50;
+          background-color: rgb(220, 168, 55);
           color: white;
           padding: 15px;
           border-radius: 8px;
@@ -80,7 +80,7 @@ exports.initialPage = async (req, res, next) => {
         }
         .highlight {
           font-weight: bold;
-          color: #007BFF;
+          color: rgb(220, 168, 55);
         }
         .footer {
           font-size: 14px;
@@ -88,9 +88,9 @@ exports.initialPage = async (req, res, next) => {
           text-align: center;
           margin-top: 30px;
         }
-        .button {
+        .btn-email {
           display: inline-block;
-          background-color: #4CAF50;
+          background-color: rgb(220, 168, 55);
           color: #fff;
           padding: 10px 20px;
           border-radius: 5px;
@@ -98,6 +98,9 @@ exports.initialPage = async (req, res, next) => {
           font-weight: bold;
           text-align: center;
           margin-top: 20px;
+        }
+        .a{
+          color: #fff;
         }
       </style>
     </head>
@@ -110,7 +113,7 @@ exports.initialPage = async (req, res, next) => {
           <p>Olá!</p>
           <p>Parabéns, <span class="highlight">ganhaste o leilão do jogo: <strong>${winner.auction.name}</strong></span> com o lance de <span class="highlight">${winner.bidValue}€</span>.</p>
           <p>Estamos muito felizes com a sua participação!</p>
-          <a href="${auctionPath}" class="button">Ver o leilão</a>
+          <a href="${auctionPath}" class="btn-email">Ver o leilão</a>
         </div>
         <div class="footer">
           <p>Este é um e-mail automático. Por favor, não responda.</p>
@@ -121,10 +124,13 @@ exports.initialPage = async (req, res, next) => {
 `
     );
   }
-
   console.log(winnerEmails);
+
+  const featuredAuctions = await Auction.fetchSixFeaturedAuctions();
+  const notFinalizedAuctions = featuredAuctions.filter(auction => auction.finalized === false);
   res.render("auction/inicialPage", {
     login: User.validateLogin(req.session.credentials),
+    auctions: featuredAuctions,
   });
   
 };
@@ -221,6 +227,6 @@ exports.profilePage = (req, res, next) => {
   res.render("auction/profile");
 };
 
-exports.adminDashboard = (req, res, next) => {
-  res.render("admin/inicialPage");
+exports.usPage = (req, res, next) => {
+  res.render("auction/us", { login: User.validateLogin(req.session.credentials) });
 };
